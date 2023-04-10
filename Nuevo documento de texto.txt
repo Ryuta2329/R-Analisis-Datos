@@ -1,0 +1,23 @@
+Hola ✨✌️
+.
+Okey está es la información que les puedo brindar hasta el momento.👀
+.
+El curso se llamará *Análisis de Datos con R* y se tártara precisamente de eso: aprender a manipular y transformar tablas de datos en R para usarlo en análisis estadísticos posteriores. ✅
+.
+Más específicamente, lo que aprenderán (los objetivos que se pretenden a alcanzar al finalizar el curso) es:
+.
+1. Introducción básica a R (el modelo de objetos de R, tipos de objetos, como realizar operaciones con objetos)🚶
+2. Investigación reproducible con R y Rmarkdown (creación de reportes y artículos en distintos formatos, introducción a Github (opcional 👀), manejo de archivos y entorno de trabajo)🏃
+3. Estructuras de datos y entrada y salida de datos (vectores, data.frames, listas, estructuras _tidy_, cargar y guardar datos desde R) 🤸
+4. Manipulación de estructuras de datos con _tidyverse_ ( _pipe operator_,  uso de filtros, modificación y transformación de tablas de datos, unión de datos, aplicaciones iterativas, _data cleaning_) 🏋️
+5. Análisis estadísticos básicos (estadística para muestras sencillas, para muestras por parejas, comparación de poblaciones, ANOVA, regresión lineal simple).🧑‍💻
+.
+Lo que NO ❌🙅van a aprender con este curso:
+.
+1. Condicionales if else
+2. Bucles for, while y otras estructuras repetitivas.
+3. Creacion y definición de funciones definidas por usuario. 
+4. Familia *apply
+.
+(Este no es un curso de programación en R. La razón de porque se dejan afuera estos típicos es porque ya existe un curso de programacuon en R (el que da el Prof Mantilla) y no es la idea dar contenido solapante. 
+De todas formas, lo que se da en este curso sirve mucho como primer paso para entrar en esos temas)

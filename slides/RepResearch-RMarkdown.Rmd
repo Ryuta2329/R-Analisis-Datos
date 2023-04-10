@@ -1,0 +1,621 @@
+---
+title: "Investigación Reproducible con RMarkdown"
+subtitle: "R para el Análisis de Datos"
+author: 'Marcelo Molinatti <br> Biologo y aspirante a _Data Scientist_ <br>'
+output:
+ xaringan::moon_reader:
+  css: [xaringan-themer.css, slides-theme.css, animate.css]
+  lib_dir: libs
+  seal: false
+  nature:
+   highlightStyle: github
+   highlightLines: true
+   countIncrementalSlides: false
+   beforeInit: "https://platform.twitter.com/widgets.js"
+lang: es
+---
+
+```{r setup, include=FALSE}
+library(fontawesome)
+library(xaringanthemer)
+
+style_duo(primary_color = "#1F4257", secondary_color = "#F97B64")
+
+library(xaringanExtra)
+
+use_tile_view()
+use_panelset()
+use_progress_bar(color = "#800080", location = "top", height = "0.25em")
+use_clipboard()
+use_editable(expires = 1)
+use_animate_css()
+
+library(RefManageR)
+```
+
+class: left
+
+<span class="circle-image">
+ <img src="`r here::here('img', 'photo_2023-04-09_21-55-20.jpg')`"/>
+</span>
+
+.title[Investigación Reproducible con _RMarkdown_]
+
+.sub-title[R para el Análisis de Datos]
+
+.left-bordered[
+.date[`r toupper(format(Sys.Date(), "%B %d, %Y"))`]
+
+.author[Marcelo J. Molinatti S.]
+]
+
+.left[
+<a href="https://github.com/Ryuta2329"><img src="`r here::here('img', 'github.png')`" width="20px", height="20px" />&nbsp; Ryuta2329</a><br><a href="https://www.linkedin.com/in/marmolinattis/"><img src="`r here::here('img', 'linkedin.png')`" width="20px", height="20px" />&nbsp; @marmolinattis</a>
+]
+
+
+---
+
+class: inverse, center, middle, animated, slideInRight, slideOutLeft
+
+`r fa(name = "comments", fill = "#1F4257", height="10em", width="12em", margin_left="0.5em")`
+
+# Investigación Reproducible
+
+---
+class: left, animated, slideInRight
+
+# Investigación Reproducible.
+
+---
+class: left
+
+# Investigación Reproducible.
+
+.animate__animated.animate__slideInRight[
+La investigación reporducible trata (_surprise, surprise!_) sobre la reproducibilidad (_Duh!_): 
+Reproducibilidad de los analisis de datos usados de forma general en la investigación científica y/o el desarrollo de modelos de _Machine Learning_. 
+
+.center[
+```{r , echo = FALSE, out.width='50%'}
+knitr::include_graphics("https://media.tenor.com/-JIgHIMq1u8AAAAC/cool.gif")
+```
+]
+]
+
+---
+class: left
+
+# Investigación Reproducible.
+
+La investigación reporducible trata (_surprise, surprise!_) sobre la reproducibilidad (_Duh!_): 
+Reproducibilidad de los analisis de datos usados de forma general en la investigación científica y/o el desarrollo de modelos de _Machine Learning_. 
+
+.center[
+```{r , echo = FALSE, out.width='50%'}
+knitr::include_graphics("https://media.tenor.com/-JIgHIMq1u8AAAAC/cool.gif")
+```
+]
+
+.scrollable2.animate__animated.animate__slideInRight[
+No tiene que ver con código o programación. Es más bien un conjunto de normas que buscan establecer _Buenas Prácticas de Análisis de Datos_.
+Esto se logra:
+
+1. Creando Proyectos Auto-Contenidos. 
+2. Usando herramientas de comunicación que faciliten la integración del análisis y la narrativa del análisis. 
+]
+
+---
+class: left
+
+.animate__animated.animate__slideInRight[
+_No es necesario ser cabeza dura._ No pasa nada si no te adhieres a estas prácticas...
+]
+
+---
+class: left
+
+_No es necesario ser cabeza dura._ No pasa nada si no te adhieres a estas prácticas...
+
+.scrollable.animate__animated.animate__slideInRight[
+
+...o puede que si! `r emo::ji("surprised")` `r emo::ji("oops")`
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The only two things that make <a href="https://twitter.com/JennyBryan?ref_src=twsrc%5Etfw">@JennyBryan</a> 😤😠🤯. Instead use projects + here::here() <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a> <a href="https://t.co/GwxnHePL4n">pic.twitter.com/GwxnHePL4n</a></p>&mdash; Hadley Wickham (@hadleywickham) <a href="https://twitter.com/hadleywickham/status/940021008764846080?ref_src=twsrc%5Etfw">December 11, 2017</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+Al final la importancia depende de como usaras tu codigo: si se trata de un trabajo que de antemano sabes solo usaras tu y que no correras fuera de tu propia computadora/laptop, esta bien no seguir estas practicas y ser feliz. 
+
+Probablemente tu yo del futuro te maldecirá. Y él no será tan feliz.
+
+.center[
+```{r , echo = FALSE, out.width='50%'}
+knitr::include_graphics(here::here("img", "Screenshot-from-2023-04-09-18-12-20.png"))
+```
+]
+]
+
+---
+class: left
+
+.animate__animated.animate__slideInRight[
+# Investigación Reproducible.
+
+.left-column[**Algunas Ventajas de usar Rmarkdown**]
+]
+
+---
+class: left
+
+# Investigación Reproducible.
+
+.left-column[**Algunas Ventajas de usar Rmarkdown**]
+
+
+.animate__animated.animate__slideInRight[
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` Mayor probabilidad de que la investigación sea correcta.
+]
+] 
+
+---
+class: left
+
+# Investigación Reproducible.
+
+.left-column[**Algunas Ventajas de usar Rmarkdown**]
+
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` Mayor probabilidad de que la investigación sea correcta.
+] 
+
+.animate__animated.animate__slideInRight[
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` La reproducibilidad facilita la verificación de la investigación y hace más fácil reproducir la investigación de forma independiente.
+]
+]
+
+---
+class: left
+
+# Investigación Reproducible.
+
+.left-column[**Algunas Ventajas de usar Rmarkdown**]
+
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` Mayor probabilidad de que la investigación sea correcta.
+]
+
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` La reproducibilidad facilita la verificación de la investigación y hace más fácil reproducir la investigación de forma independiente.
+]
+
+.animate__animated.animate__slideInRight[
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` Hace más fácil ampliar la investigación.
+]
+]
+
+---
+class: left
+
+# Investigación Reproducible.
+
+.left-column[**Algunas Ventajas de usar Rmarkdown**]
+
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` Mayor probabilidad de que la investigación sea correcta.
+] 
+
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` La reproducibilidad facilita la verificación de la investigación y hace más fácil reproducir la investigación de forma independiente.
+]
+
+.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` Hace más fácil ampliar la investigación.
+]
+
+.animate__animated.animate__slideInRight.right-column[
+`r fa(name = "circle-check", fill = "#F97B64")` Generan código e instrucciones reutilizables que dan como resultado una mayor eficiencia. 
+]
+
+---
+class: center, bottom, inverse
+
+.animate__animated.animate__slideInRight[
+```{r , echo = FALSE, out.width='50%'}
+knitr::include_graphics(here::here("img", "rmarkdown-image1.png"))
+```
+
+# RMarkdown is here!
+]
+
+---
+class: left
+
+.animate__animated.animate__slideInRight[
+# ¿Qué es RMarkdown?
+
+.pull-left[
+Es una forma de _Comunicación_ entre investigadores y programadores de R. Es una forma de hacer seguimiento y llevar registro de todas las cosas que no es posible colocar en un *script*. 
+Más tecnicamente, es un _marco de trabajo de autoría unificado_ para la ciencia de datos. 
+]
+
+.pull-right.center[
+```{r , echo = FALSE, out.width='60%'}
+knitr::include_graphics(here::here("img", "rmarkdown-image1.png"))
+```
+]
+]
+
+---
+class: left
+
+# ¿Qué es RMarkdown?
+
+.pull-left[
+Es una forma de _Comunicación_ entre investigadores y programadores de R. Es una forma de hacer seguimiento y llevar registro de todas las cosas que no es posible colocar en un *script*. 
+Más tecnicamente, es un _marco de trabajo de autoría unificado_ para la ciencia de datos. 
+]
+
+.pull-right.center[
+```{r , echo = FALSE, out.width='60%'}
+knitr::include_graphics(here::here("img", "rmarkdown-image1.png"))
+```
+]
+
+.animate__animated.animate__slideInRight.pull-left[
+* El _script_ contiene el código de R con el análisis de datos.
+* Contiene código, resultados y prosa para la generación de reportes (y mucho más!) de forma reproducible.
+]
+
+
+---
+class: left
+
+# ¿Qué es RMarkdown?
+
+.pull-left[
+Es una forma de _Comunicación_ entre investigadores y programadores de R. Es una forma de hacer seguimiento y llevar registro de todas las cosas que no es posible colocar en un *script*. 
+Más tecnicamente, es un _marco de trabajo de autoría unificado_ para la ciencia de datos. 
+]
+
+.pull-right.center[
+```{r , echo = FALSE, out.width='60%'}
+knitr::include_graphics(here::here("img", "rmarkdown-image1.png"))
+```
+]
+
+.pull-left[
+* El _script_ contiene el código de R con el análisis de datos.
+* Contiene código, resultados y prosa para la generación de reportes (y mucho más!) de forma reproducible.
+]
+
+.animate__animated.animate__slideInRight.pull-right.left-bordered[
+No solo para comunicación, sino que además sirve como medio colaborativo entre investigadores y como un entorno de trabajo donde registrar lo que haces y lo que piensas.
+]
+
+---
+
+
+Maybe add workflow and stuff: pixc depicting workflow and the part where Markdown falls
+
+
+---
+class: left 
+
+.animate__animated.animate__slideInRight[
+## Preparando R para manejar *RMarkdown*
+
+* Para comenzar, debes instalar *Rmarkdown* de la forma usual: `install.packages("rmarkdown")`. 
+* Si piensas usarlo para generar reportes en formato PDF, debes instalar LaTeX o instalar el paquete `tinytex` en R y luego usar `tinytex::install_tinytex()` (version ligera de LaTeX que te permite realizar el compilado).
+* Necesitaras instalado *Pandoc* para poder generar los documentos. Puedes verificar si ya lo tienes instalado desde R usando: `rmarkdown::find_pandoc()`.
+]
+
+---
+class: left
+
+## Preparando R para manejar *RMarkdown*
+
+* Para comenzar, debes instalar *Rmarkdown* de la forma usual: `install.packages("rmarkdown")`. 
+* Si piensas usarlo para generar reportes en formato PDF, debes instalar LaTeX o instalar el paquete `tinytex` en R y luego usar `tinytex::install_tinytex()` (version ligera de LaTeX que te permite realizar el compilado).
+* Necesitaras instalado *Pandoc* para poder generar los documentos. Puedes verificar si ya lo tienes instalado desde R usando: `rmarkdown::find_pandoc()`.
+
+.scrollable2.animate__animated.animate__slideInRight[
+## Proceso de generación.
+
+```{r Rendering, echo = FALSE, out.width='100%'}
+knitr::include_graphics(here::here("img", "RMarkdownFlow.png"))
+```
+]
+
+---
+class: inverse, center, middle
+
+.animate__animated.animate__slideInRight[
+`r fa(name = "pen-to-square", fill = "#1F4257", height="8em", width="8em", margin_left="0.5em")`
+
+<br>
+
+# Anatomía de *RMarkdown*.
+]
+
+---
+class: left 
+
+.animate__animated.animate__slideInRight[
+# Encabezado YAML
+
+.pull-left[
+Este encabezado contiene lo que se conoce como metadata: información sobre el documento y otras instrucciones que afectan el proceso de generación del documento (también llamado *rendering*). Este se coloca al inicio del documento:
+]
+]
+
+---
+class: left 
+
+# Encabezado YAML
+
+.pull-left[
+Este encabezado contiene lo que se conoce como metadata: información sobre el documento y otras instrucciones que afectan el proceso de generación del documento (también llamado *rendering*). Este se coloca al inicio del documento:
+]
+
+.animate__animated.animate__slideInRight.pull-right.left-bordered.can-edit[
+```
+---
+ title: "Yet another course on R!"
+ author: "Marcelo Molinatti"
+ date: 2021-01-19
+ output: html_document
+---
+```
+]
+
+---
+class: left
+
+# Encabezado YAML
+
+.pull-left[
+Este encabezado contiene lo que se conoce como metadata: información sobre el documento y otras instrucciones que afectan el proceso de generación del documento (también llamado *rendering*). Este se coloca al inicio del documento:
+]
+
+.pull-right.left-bordered.can-edit[
+```
+---
+ title: "Yet another course on R!"
+ author: "Marcelo Molinatti"
+ date: 2021-01-19
+ output: html_document
+---
+```
+]
+
+.animate__animated.animate__slideInRight[
+.pull-left[
+También puedes especificar argumentos para la salida de forma que puedas modificar ciertos aspectos del documento generado. Por ejemplo:
+]
+
+.pull-right.left-bordered.can-edit[
+```
+output:
+ html_document:
+  toc: true
+  toc_depth: 2
+```
+]
+]
+
+---
+class: left
+
+.animate__animated.animate__slideInRight[
+## Texto con formato.
+]
+
+---
+class: left
+
+## Texto con formato.
+
+.animate__animated.animate__shakeY.panelset[
+.panel[.panel-name[Secciones]
+
+Los encabezados que permiten definir secciones y subsecciones utilizando los numerales `#`. 
+* Un numeral indica un nivel o una sección del documento. 
+* Dos numerales (`##`) indican una subsección o segundo nivel.
+* Tres numerales (`###`) indican una subsubsección o tercer nivel nivel.
+
+Por ejemplo: 
+
+```
+# Materiales y Métodos
+
+## Equipos y reactivos. {-}
+
+## Cultivo de Microorganismo.
+
+### Preparación del sustrato.
+```
+
+El `{-}` indica que la subsección `## Equipos y reactivos.` no va numerada.
+
+]
+
+.panel[.panel-name[Formato de texto]
+
+Puedes enfatizar palabras (o *îtalizar*), encerrando la palabra o frase entre `*` (o `_`). Por ejemplo, `_RMarkdown_` se renderiza como _RMarkdown_.
+
+Si utilizas dos `*` (o `_`) entonces la palabra o palabras son resaltadas en negritas (*boldface*). Por ejemplo, `**Importante**` se renderiza como **Importante**.
+
+Puedes encerrar texto que se entiende como código entre `` ` ``. Por ejemplo, al escribir `install.packages(rmarkdown)`, lo hice como `` `install.packages(rmarkdown)` ``.
+
+]
+
+.panel[.panel-name[Listas]
+
+También es posible realizar lista ordenadas (enumeradas) o no.
+
+```
+Esta es una lista no numerada:
+
+* Este es el primer *item* de la lista.
+* Este es el segundo *item*, el cual tiene otra lista no numerada anidada.
+    * Este es el primer item de la sublista, anidada en el segundo *item*.
+    * Este es el segundo *item* de la sublista.
+* Otro *item* de la lista más externa.
+
+Este es un ejemplo de una lista numerada u ordenada:
+
+1. El primer *item* enumerado.
+1. El segundo *item* numerado. Los número se incrementan automáticamente de forma que no te tienes que preocupar por la numeración de cada uno de los *items*.
+```
+
+]
+
+.panel[.panel-name[Ecuaciones]
+
+Se pueden añadir, siguiendo el formato de LaTeX, dentro de las lineas de texto (_inline_) o en modo presentación (_display_). 
+* Para el primer caso, se usa un solo `$` a ambos lados de la ecuación, como en `$f(x) = x^2 - 5x + 1$`.
+* Para el segundo caso, se usan dos `$` a ambos lados de la ecuación, como en: `$` `$f(x) = x^2 - 5x + 1$` `$` (sin los espacios en blanco entre signos `$`)
+
+En el primer caso, se renderiza como $f(x) = x^2 - 5x + 1$; y en el segundo caso como:
+
+$$f(x) = x^2 - 5x + 1$$
+
+]
+]
+---
+class: left 
+
+.animate__animated.animate__slideInRight[
+## Fragmentos de Código (_chunk code_).
+
+_Rmarkdown_ tiene la capacidad de añadir fragmentos de código R que se ejecutan. 
+
+Estos fragmentos pueden resultar en salidas (o *outputs*, como imágenes, tablas, datos, etc.) que se imprimen y se muestran en el documento generado por la función `render` al compilar el documento. 
+
+Para colocar un fragmento de código, colocas `{r }` encerrado entre tres `` ` ``.
+
+`````markdown
+`r ''````{r Simulacion, eval=FALSE}
+# Simula 100 datos aleatorios de una distribución normal.
+sim_data <- rnorm(100, mean = 14, sd = 1.2)
+
+hist(sim_data)
+```
+`````
+]
+
+---
+class: inverse, center, middle, animated, slideInRight, slideOutRight
+
+
+`r fa(name = "question", fill = "#1F4257", height="8em", width="6em", margin_left="0.5em")`
+
+# A donde ir a partir de aquí?
+
+```{r, load_refs, echo=FALSE}
+bib <- ReadBib(here::here("slides", "assets", "my_bib.bib"), check = FALSE)
+```
+
+---
+class: left, animated, slideInRight, slideOutRight
+
+.pull-left[
+[La guía definitiva de RMarkdown](https://bookdown.org/yihui/rmarkdown/) de `r Citet(bib, "xie2020", .opts=list(bib.style="authoryear"))` es un buen lugar para encontrar información detallada sobre las capacidades y limitaciones de _RMarkdown_: desde los básico, pasando por las posibilidades de documentos, hasta las extensiones y otros temas que podrían servir para ciertas aplicaciones.
+
+No te quedes esperando y ve que puedes lograr. El limite es tu imaginación. 
+
+<br>
+<br>
+<br>
+
+```{r , results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+print(bib[key = "xie2018"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+```
+]
+
+.pull-right[
+```{r , echo = FALSE, out.width='100%'}
+knitr::include_graphics("https://bookdown.org/yihui/rmarkdown/images/cover.png")
+```
+]
+
+---
+class: left, animated, slideInRight, slideOutLeft
+
+.pull-left[
+[El recetario de RMarkdown](https://bookdown.org/yihui/rmarkdown-cookbook/) de `r Citet(bib, "xie2020", .opts=list(bib.style="authoryear"))` es una buena forma de empezar a _agarrar_ la idea, con ejemplos cortos y prácticos de uso de _RMarkdown_.
+
+Que estas es esperando. Esos documentos no se vana escribir solos.
+
+<br>
+<br>
+<br>
+
+```{r , results='asis', echo=FALSE, warning=FALSE, message=FALSE}
+print(bib[key = "xie2020"], 
+  .opts = list(check.entries = FALSE, 
+               style = "html", 
+               bib.style = "authoryear"))
+```
+]
+
+.pull-right[
+```{r , echo = FALSE, out.width='100%'}
+knitr::include_graphics("https://bookdown.org/yihui/rmarkdown-cookbook/images/cover.png")
+```
+]
+
+---
+class: inverse, left, bottom, animated, slideInRight, slideOutLeft
+
+
+.thanks[Gracias]
+
+---
+class: inverse, left, bottom
+
+.thanks[Gracias]
+
+`r fa(name = "terminal", fill = "#1F4257")`
+<br>
+
+--
+
+Presentación creada con el paquete xaringan de Yihui Xie.
+
+--
+
+`r fa(name = "terminal", fill = "#1F4257")`
+<br>
+
+--
+
+`r fa(name = "terminal", fill = "#1F4257")`
+<br>
+
+--
+
+`r fa(name = "terminal", fill = "#1F4257")`
+<br>
+
+--
+
+`r fa(name = "envelope", fill = "#1F4257")` molinatti.marc.029@gmail.com
+
+--
+
+<a href="https://github.com/Ryuta2329"><img src="`r here::here('img', 'github2.png')`" width="20px", height="20px" />&nbsp; Ryuta2329</a>
+
+--
+
+<a href="https://www.linkedin.com/in/marmolinattis/"><img src="`r here::here('img', 'linkedin2.png')`" width="20px", height="20px" />&nbsp; @marmolinattis</a>
+
+
+
+
+

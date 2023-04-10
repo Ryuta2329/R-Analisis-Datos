@@ -1,0 +1,29 @@
+---
+title: "Primera Asignación: Tipos de Datos"
+author: Marcelo Molinatti
+date: "`r format(Sys.Date(), '%d de %B, %Y')`"
+output: pdf_document
+---
+
+_La solucion a esta asignacion debe ser entregada en forma de un script de R, debidamente comentado: esto es, especificando para que pregunta corresponde las lineas de codigo escrito. En cada caso, lea cuidadosmente y resuelva cdaa ejercicio escribiendo expresiones que devuelvan la respuesta correcta a los ejercicios_
+
+1. Escribe en R las siguientes operaciones matemáticas y obtén los resultados:
+
+ * $$1 + \frac{5}{15 + 8}$$
+ * $$\sqrt{3^2 + 4^2}$$
+ * $$\frac{10}{10 + \text{e}^{1.5\times20}}$$
+
+2. Cree un objeto `x` en R, y utilice la operación de asignación (`<-`) para almacenar en este un valor de su preferencia. Calcule para el objeto recien creado la sigiente operación:  
+ $$(x^a)^b$$
+ para valores de $a$ y $b$ de su preferencia (note que las constantes $a$ y $b$ deben de crearse en R).  
+ Trate de realizar la operación anterior de, al menos, dos maneras distintas (tome en cuenta la precedencia de operadores).
+
+3. Ya Ud. aprendió que la constante $\pi$ esta definida por omisión en R. Utilice esta para calcular el valor de $cos(\pi / 2)$. Compare este valor con cero utilizando el operador lógico `==`. ¿Qué puede decir del resultado?¿Son iguales?¿Por qué no?.
+
+4. Calcule las raices del polinomio $x^2 - 2x + 8$ (para ello, escriba una expresión para la formula cuadrática usual). ¿Nota algo particular? Comente. Intente crear un objeto que contenga la solución al problema. 
+
+5. Utiliza las funciones de ayuda de R para revisar la documentación de la función `strsplit` y utilízala para romper la cadena de caracteres `"Why?all?those?interrogation?symbols, eh?"` en cada aparición de un signo de interrogación.
+
+6. Crea un objeto de clase `Date` que contenga tu fecha de nacimiento (puedes usar `as.Date()` o `ISOdate()`). Calcula cuantos días faltan para tu próximo cumpleaños (_Pista:_ Recuerda que puedes obtener la fecha actual usando `Sys.Date()`)
+
+7. Utiliza la ayuda de R para investigar sobre la precedencia de operadores (*Pista*: Utiliza la función `help.search` o `??` para realizar la busqueda. Utiliza *precedence* como palabra clave).

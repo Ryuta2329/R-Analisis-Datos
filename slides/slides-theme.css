@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Montserrat:wght@400;700&display=swap');
+
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+}
+p, ul, ol {
+  font-family: 'Courier Prime', monospace;
+}
+.scrollable {
+  height: 50%;
+  overflow-y: auto;
+} 
+.scrollable2 {
+  height: 15%;
+  overflow-y: auto;
+} 
+.twitter-tweet {
+  margin: 0;
+  left: 15%;
+  position: relative;
+  /*-ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);*/
+}
+.center-img {
+  display: block;
+  margin-left: 25%;
+  width: 100%;
+}
+.left-bordered {
+  border-left: 5px solid #F97B64;
+  padding-left: .5em;
+}
+.circle-image{
+    display: inline-block;
+    overflow: hidden;
+    width: 20%;
+    padding-bottom: 20%;
+    height: 0;
+    position: relative;
+}
+.circle-image img{
+  width:100%;
+  height:100%;
+  position: absolute;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.title {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 50px;
+  text-align: left;
+  color: #F97B64;
+}
+.sub-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 35px;
+  font-weight: 700;
+  text-align: left;
+  color: #F97B64;
+}
+.date {
+  font-family: 'Courier Prime', monospace;
+  font-size: 20px;
+  text-align: left;
+}
+.author {
+  font-family: 'Courier Prime', monospace;
+  font-size: 25px;
+  text-align: left;
+}
+a:link {
+  color: #1F4257;
+}
+
+/* visited link */
+a:visited {
+  color: #1F4257;
+}
+
+/* mouse over link */
+a:hover {
+  color: #1F4257;
+}
+
+/* selected link */
+a:active {
+  color: #1F4257;
+}
+.thanks {
+  font-size: 50px;
+  font-weight: 700;
+}
+.xaringan {
+  color: #1F4257;
+  font-family: monospace;
+}
