@@ -71,24 +71,6 @@ p, ul, ol {
   font-size: 25px;
   text-align: left;
 }
-a:link {
-  color: #1F4257;
-}
-
-/* visited link */
-a:visited {
-  color: #1F4257;
-}
-
-/* mouse over link */
-a:hover {
-  color: #1F4257;
-}
-
-/* selected link */
-a:active {
-  color: #1F4257;
-}
 .thanks {
   font-size: 50px;
   font-weight: 700;
@@ -96,4 +78,16 @@ a:active {
 .xaringan {
   color: #1F4257;
   font-family: monospace;
+}
+last-slide a:link {
+  color: #1F4257;
+}
+last-slide a:visited {
+  color: #1F4257;
+}
+last-slide a:hover {
+  color: #1F4257;
+}
+last-slide a:active {
+  color: #1F4257;
 }

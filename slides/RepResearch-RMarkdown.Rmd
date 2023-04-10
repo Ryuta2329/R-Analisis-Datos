@@ -4,7 +4,7 @@ subtitle: "R para el Análisis de Datos"
 author: 'Marcelo Molinatti <br> Biologo y aspirante a _Data Scientist_ <br>'
 output:
  xaringan::moon_reader:
-  css: [xaringan-themer.css, slides-theme.css, animate.css]
+  css: [xaringan-themer.css, assets/slides-theme.css, assets/animate.css]
   lib_dir: libs
   seal: false
   nature:
@@ -16,6 +16,8 @@ lang: es
 ---
 
 ```{r setup, include=FALSE}
+here::i_am("slides/RepResearch-RMarkdown.Rmd")
+
 library(fontawesome)
 library(xaringanthemer)
 
@@ -609,12 +611,16 @@ Presentación creada con el paquete xaringan de Yihui Xie.
 
 --
 
+
+<last-slide id="github-icon">
 <a href="https://github.com/Ryuta2329"><img src="`r here::here('img', 'github2.png')`" width="20px", height="20px" />&nbsp; Ryuta2329</a>
+</last-slide>
 
 --
 
+<last-slide id="github-icon">
 <a href="https://www.linkedin.com/in/marmolinattis/"><img src="`r here::here('img', 'linkedin2.png')`" width="20px", height="20px" />&nbsp; @marmolinattis</a>
-
+</last-slide>
 
 
 
