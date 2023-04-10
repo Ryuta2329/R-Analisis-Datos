@@ -38,7 +38,7 @@ library(RefManageR)
 class: left
 
 <span class="circle-image">
- <img src="`r knitr::include_graphics(here::here('img', 'photo_2023-04-09_21-55-20.jpg'))`"/>
+ <img src="`r knitr::include_graphics(here::here('img', 'photo_2023-04-09_21-55-20.jpg'))`" />
 </span>
 
 .title[Investigación Reproducible con _RMarkdown_]
@@ -301,7 +301,11 @@ No solo para comunicación, sino que además sirve como medio colaborativo entre
 
 Maybe add workflow and stuff: pixc depicting workflow and the part where Markdown falls
 
-
+```{r , engine='tikz'}
+\begin{tikzpicture}
+ \draw (0,0) circle (2cm);
+\end{tikzpicture}
+```
 
 
 ---
