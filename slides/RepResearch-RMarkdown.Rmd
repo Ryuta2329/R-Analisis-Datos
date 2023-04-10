@@ -38,7 +38,7 @@ library(RefManageR)
 class: left
 
 <span class="circle-image">
- <img src="`r here::here('img', 'photo_2023-04-09_21-55-20.jpg')`"/>
+ <img src="https://github.com/Ryuta2329/R-Analisis-Datos/blob/master/img/photo_2023-04-09_21-55-20.jpg"/>
 </span>
 
 .title[Investigación Reproducible con _RMarkdown_]
@@ -52,7 +52,7 @@ class: left
 ]
 
 .left[
-<a href="https://github.com/Ryuta2329"><img src="`r here::here('img', 'github.png')`" width="20px", height="20px" />&nbsp; Ryuta2329</a><br><a href="https://www.linkedin.com/in/marmolinattis/"><img src="`r here::here('img', 'linkedin.png')`" width="20px", height="20px" />&nbsp; @marmolinattis</a>
+<a href="https://github.com/Ryuta2329"><img src="https://github.com/Ryuta2329/R-Analisis-Datos/blob/master/img/github.png" width="20px", height="20px" />&nbsp; Ryuta2329</a><br><a href="https://www.linkedin.com/in/marmolinattis/"><img src="https://github.com/Ryuta2329/R-Analisis-Datos/blob/master/img/linkedin.png" width="20px", height="20px" />&nbsp; @marmolinattis</a>
 ]
 
 
@@ -300,6 +300,8 @@ No solo para comunicación, sino que además sirve como medio colaborativo entre
 
 
 Maybe add workflow and stuff: pixc depicting workflow and the part where Markdown falls
+
+
 
 
 ---
@@ -613,13 +615,13 @@ Presentación creada con el paquete xaringan de Yihui Xie.
 
 
 <last-slide id="github-icon">
-<a href="https://github.com/Ryuta2329"><img src="`r here::here('img', 'github2.png')`" width="20px", height="20px" />&nbsp; Ryuta2329</a>
+<a href="https://github.com/Ryuta2329"><img src="https://github.com/Ryuta2329/R-Analisis-Datos/blob/master/img/github2.png" width="20px", height="20px" />&nbsp; Ryuta2329</a>
 </last-slide>
 
 --
 
 <last-slide id="github-icon">
-<a href="https://www.linkedin.com/in/marmolinattis/"><img src="`r here::here('img', 'linkedin2.png')`" width="20px", height="20px" />&nbsp; @marmolinattis</a>
+<a href="https://www.linkedin.com/in/marmolinattis/"><img src="https://github.com/Ryuta2329/R-Analisis-Datos/blob/master/img/linkedin2.png" width="20px", height="20px" />&nbsp; @marmolinattis</a>
 </last-slide>
 
 
