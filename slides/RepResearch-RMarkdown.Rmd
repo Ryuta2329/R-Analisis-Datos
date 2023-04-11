@@ -301,7 +301,6 @@ class: left, inverse
 
 # _RMarkdown_: Para ver y para hablar...
 
-
 ```{r , echo = FALSE, out.width='100%'}
 knitr::include_graphics(here::here("img", "rmarkdown-wf-position.png"))
 ```
